@@ -1,0 +1,13 @@
+version: '2.1'
+
+services:
+  roscore:
+    build: ./bot
+    restart: always
+    network_mode: host
+    environment: 
+        - ROS_IP=192.168.0.112
+        - ROS_HOSTNAME=192.168.0.112
+        - ROS_MASTER_URI=http://192.168.0.112:11311
+        - UDEV=1
+    privileged: true

@@ -1,0 +1,3 @@
+sparkfun-qwiic-scmd==0.9.1
+Jetson.GPIO==2.0.17
+vl53l1x==0.0.5

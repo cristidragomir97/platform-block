@@ -1,0 +1,75 @@
+[{
+    "name": "balenaBot", 
+    "desc": "default implementation of the balenaBot",
+    "roscore": "true",
+    "drivetrain":{
+        "type":"differential",
+        "use_pid": "true",
+        "wheels": {
+            "no": 2, 
+            "radius": 0.0325, 
+            "sep": 0.295
+        },
+        "driver": {
+            "type": "sparkfun",
+            "flip": "true"
+        }, 
+        "encoders": [
+            { 
+                "type": "quadrature",
+                "position": "left",
+                "A":  37, 
+                "B": 35
+            }, 
+            { 
+                "type": "quadrature",
+                "position": "left",
+                "A":  33, 
+                "B": 31
+            }
+        ]
+    },
+
+    "servos": [
+        {
+            "name": "camera_servo",
+            "type": "GPIO",
+            "pin": 33
+        }
+    ],
+
+    "sensors": [
+        {
+            "type": "VL53L1",
+            "name": "center_ir",
+            "bus": 1, 
+            "address": "0x29",
+            "angle": , 
+            "flip": "false",
+            "fov": "wide",
+            "range": 3
+        }, 
+        {
+            "type": "VL53L1",
+            "name": "left_ir",
+            "bus": 1, 
+            "address": "0x28",
+            "angle": -30, 
+            "flip": "false",
+            "fov": "wide",
+            "range": 3
+        }, 
+        {
+            "type": "VL53L1",
+            "name": "right_ir",
+            "bus": 0, 
+            "address": "0x29",
+            "angle": 30, 
+            "flip": "false",
+            "fov": "wide",
+            "range": 3
+        }
+
+
+    ]
+}]
