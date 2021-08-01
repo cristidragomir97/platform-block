@@ -5,6 +5,7 @@ Takes in a robot configuration from a JSON file and creates all the required ROS
 Basic idea is to be able to abstract away the hardware completely for higher levels of functionality (perception, ML, mapping, etc.)
 
 *Also runs IMU filters, and PID control if configured.*
+
 ---
 ## Supported modules
 * **Motor Drivers**: 
