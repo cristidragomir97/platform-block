@@ -1,9 +1,20 @@
-class VL53L1(Sensor):
-    import VL53L1X
+import VL53L1X
+from lib.ranging import Ranging
 
-    def __init__(name, angle, bus=1, address=0x29)
-        super().__init__(name, kind="ranging", radiation="ir")
-        self.tof = VL53L1X.VL53L1X(i2c_bus=bus, i2c_address=address)
+class VL53L1(Ranging):
+
+    def __init__(self, name, address="0x29"):
+        
+        super().__init__(name, 
+                radiation="ir",
+                min_range="0",
+                max_range="400", 
+                fov="27")
+
+        super().set_callback(self.read)
+
+
+        self.tof = VL53L1X.VL53L1X(i2c_bus=1, i2c_address=address)
 
     def set_range(self, rng):
         if rng < 4 and rng >= 0:
@@ -16,19 +27,19 @@ class VL53L1(Sensor):
         if mode == "wide": 
             roi = VL53L1X.VL53L1xUserRoi(0, 15, 15, 0)
 
-        else if mode == "center":
+        elif mode == "center":
             roi = VL53L1X.VL53L1xUserRoi(6, 9, 9, 6)
 
-        else if mode == "top":
+        elif mode == "top":
             roi = VL53L1X.VL53L1xUserRoi(6, 15, 9, 12)
 
-        else if mode == "bottom":
+        elif mode == "bottom":
             roi = VL53L1X.VL53L1xUserRoi(6, 3, 9, 0)
 
-        else if mode == "left":
+        elif mode == "left":
             roi = VL53L1X.VL53L1xUserRoi(0, 9, 3, 6)
 
-        else if mode == "right":
+        elif mode == "right":
             roi = VL53L1X.VL53L1xUserRoi(12, 9, 15, 6)
             
         else:
