@@ -26,12 +26,10 @@ class SparkfunDriver():
         angular = msg.angular.z
         linear = msg.linear.x
 
-        print(angular, linear)
+        
         right_pwm, left_pwm = compute_pwm(angular, linear, self.radius)
+        print(right_pwm, left_pwm, angular, linear)
 
-        if self.flip:
-            self.sparkfun.set_drive(0, 0, right_pwm)
-            self.sparkfun.set_drive(1, 1, left_pwm)
-        else: 
-            self.sparkfun.set_drive(0, 1, right_pwm)
-            self.sparkfun.set_drive(1, 1, left_pwm)
+        self.sparkfun.set_drive(0, 0, right_pwm)
+        self.sparkfun.set_drive(1, 1, left_pwm)
+        

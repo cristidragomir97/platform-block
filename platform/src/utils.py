@@ -31,7 +31,7 @@ def detect_usb():
                 
     print(devices)
 
-def tof_address_fix(pins = [11, 13, 15]):
+def tof_address_fix(pins = [17, 27, 22]):
 
     import RPi.GPIO as GPIO
     import VL53L1X

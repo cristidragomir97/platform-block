@@ -26,14 +26,14 @@
 
                 "depth":{
                     "enable": "true",
-                    "resolution": [640, 480],
-                    "rate": 30
+                    "resolution": [424, 240],
+                    "rate": 15
                 },
 
                 "color":{
                     "enable": "true",
-                    "resolution": [640, 480],
-                    "rate": 30
+                    "resolution": [320, 240],
+                    "rate": 15
                 }
         }],
 
@@ -74,20 +74,20 @@
 
         ],
 
-        "IMU":{
+        "IMU":[{
             "topic": "/imu/raw",
-            "type":" LSM9DS1",
+            "type":"LSM9DS1",
             "address": ["0x1e", "0x6b"],
             "publish_tf": true,
             "filter":{
                 "type": "madgwick"
             }
-        },
+        }],
 
-        "power":{
-            "name": "motor_power",
+        "power":[{
+            "type":"INA219",
+            "topic": "/power/motors",
             "address": "0x40"
-
-        }
+        }]
     }
 }]
